@@ -1,6 +1,5 @@
 #include "./display/display.cpp"
-#include "./libc/string/memcopy.cpp"
-#include "./libc/string/string_functions.cpp"
+#include "./libc/string/string.c"
 
 extern "C" void kernel_main(void);
 

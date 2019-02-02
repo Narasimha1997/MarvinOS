@@ -1,0 +1,62 @@
+#include<stdint.h>
+
+
+void * memcopy(void *dest, void *source, uint8_t size) {
+    uint8_t iter__ = 0;
+
+    char *source_char = (char *)source;
+    char *dest_char = (char *)dest;
+
+    while(iter__ != size) {
+        dest_char[iter__] = source_char[iter__];
+        iter__ ++;
+    }
+
+    return dest_char;
+}
+
+void * memmove(void * dst, void * src, uint8_t size) {
+    char * dst_c = (char *)dst;
+    char * src_c = (char *)src;
+
+    uint8_t iter__ = 0;
+
+    while(iter__ != size) {
+        dst_c[iter__] = src_c[iter__];
+        src_c[iter__] = '\0';
+
+        iter__ ++;
+    }
+
+    return dst_c;
+}
+
+
+extern uint8_t strlen(char *src) {
+    uint8_t iter__ = 0;
+
+    while(*src != '\0') {
+        iter__ ++;
+        src ++;
+    }
+
+    return iter__;
+}
+
+extern uint8_t strcmp(char *src, char *dst) {
+
+
+    if(strlen(src) != strlen(dst)) return +1;
+
+    while(*src != '\0') {
+        if(*src != *dst) return +1;
+        src ++; dst ++;
+    }
+    
+    return 0;
+}
+
+extern void strncpy(char *source, char *dest, uint8_t n) {
+    source += strlen(source);
+    memcopy(source, dest, n);
+}
