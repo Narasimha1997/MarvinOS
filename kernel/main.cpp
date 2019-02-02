@@ -17,6 +17,8 @@ void sample_program() {
 
     Display::write(buffer);
 
+    Display::write("\nEnd of Program, more to be developed yet\n");
+
 }
 
 void kernel_main(void) {
