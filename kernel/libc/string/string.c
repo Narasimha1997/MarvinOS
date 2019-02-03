@@ -1,5 +1,5 @@
 #include<stdint.h>
-
+#include "string.h"
 
 void * memcopy(void *dest, void *source, uint8_t size) {
     uint8_t iter__ = 0;
@@ -14,6 +14,7 @@ void * memcopy(void *dest, void *source, uint8_t size) {
 
     return dest_char;
 }
+
 
 void * memmove(void * dst, void * src, uint8_t size) {
     char * dst_c = (char *)dst;
@@ -32,7 +33,7 @@ void * memmove(void * dst, void * src, uint8_t size) {
 }
 
 
-extern uint8_t strlen(char *src) {
+uint8_t strlen(char *src) {
     uint8_t iter__ = 0;
 
     while(*src != '\0') {
@@ -43,7 +44,7 @@ extern uint8_t strlen(char *src) {
     return iter__;
 }
 
-extern uint8_t strcmp(char *src, char *dst) {
+uint8_t strcmp(char *src, char *dst) {
 
 
     if(strlen(src) != strlen(dst)) return +1;
@@ -56,7 +57,7 @@ extern uint8_t strcmp(char *src, char *dst) {
     return 0;
 }
 
-extern void strncpy(char *source, char *dest, uint8_t n) {
+void strncpy(char *source, char *dest, uint8_t n) {
     source += strlen(source);
     memcopy(source, dest, n);
 }

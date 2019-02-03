@@ -1,23 +1,14 @@
-#include "./display/display.cpp"
-#include "./libc/string/string.c"
+#include "./display/display.h"
+#include "./libc/string/string.h"
+
+using namespace Display;
 
 extern "C" void kernel_main(void);
 
 
 void sample_program() {
 
-    Display::write("First program using string function : \n");
-
-    char buffer[50] = "Hello";
-
-    char *cpy = " Prasanna";
-
-    strncpy(buffer, cpy, 9);
-
-    Display::write(buffer);
-
-    Display::write("\nEnd of Program, more to be developed yet\n");
-
+    test_display_in_string();
 }
 
 void kernel_main(void) {
