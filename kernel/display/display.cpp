@@ -1,4 +1,4 @@
-#include "vga.c"
+#include "vga.cpp"
 #include "display.h"
 
 namespace Display

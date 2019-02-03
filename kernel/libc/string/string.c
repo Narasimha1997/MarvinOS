@@ -1,5 +1,5 @@
 #include<stdint.h>
-#include "string.h"
+#include "../string.h"
 
 void * memcopy(void *dest, void *source, uint8_t size) {
     uint8_t iter__ = 0;
