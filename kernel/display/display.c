@@ -1,9 +1,9 @@
-#include "vga.c"
+#include "./vga.c"
 #include "display.h"
 
 uint8_t display_color = 0x0f;
 
-void init()
+void init_display()
 {
     tty_setcolor(display_color);
     vga_init();
@@ -15,7 +15,7 @@ uint8_t form_color(uint8_t background, uint8_t foreground)
     return (bg | foreground);
 }
 
-void putchar(char ch)
+void putchar(unsigned char ch)
 {
     vga_putchar(ch);
 }

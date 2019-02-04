@@ -1,7 +1,7 @@
 #include<stdbool.h>
 #include<stdint.h>
-#include "../libc/string.h"
-#include "../drivers/serial.h"
+#include "string.h"
+#include "serial.h"
 
 #define VGA_MEMORY_LOCATION 0xB8000
 
@@ -14,7 +14,7 @@
 extern void vga_init(void);
 extern void terminal_putstring(char *string);
 extern void tty_setcolor(uint8_t color);
-extern void vga_putchar(char ch);
+extern void vga_putchar(unsigned char ch);
 extern void terminal_write_string_at(char *string, uint8_t row, uint8_t col);
 extern void terminal_write_string_at_and_reset(char *string, uint8_t row, uint8_t col);
 
@@ -102,7 +102,7 @@ void vga_init(void) {
     enable_cursor(14,15);
 } 
 
-void vga_putchar(char ch) {
+void vga_putchar(unsigned char ch) {
 
     uint16_t index = 0;
 
@@ -132,7 +132,7 @@ void vga_putchar(char ch) {
 
 void terminal_putstring(char *string) {
     while(*string != '\0') {
-        vga_putchar(*string);
+        vga_putchar((unsigned char)*string);
         string +=1;
     }
     update_cursor(tty_col, tty_row);

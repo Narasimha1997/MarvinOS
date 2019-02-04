@@ -1,5 +1,5 @@
 #include<stdint.h>
-#include "../string.h"
+#include "string.h"
 
 void * memcopy(void *dest, void *source, uint8_t size) {
     uint8_t iter__ = 0;
@@ -13,6 +13,15 @@ void * memcopy(void *dest, void *source, uint8_t size) {
     }
 
     return dest_char;
+}
+
+void *memset(void *dst, int c, size_t count){
+	char *p = (char *)dst;
+
+	for (; count != 0; --count)
+		*p++ = c;
+
+    return dst;
 }
 
 

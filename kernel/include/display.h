@@ -30,9 +30,9 @@ extern "C"
     /*  
        Public Display Kernel API 
      */
-    void init();
+    void init_display();
     uint8_t form_color(uint8_t background, uint8_t foreground);
-    void putchar(char ch);
+    void putchar(unsigned char ch);
     void set_color(uint8_t bg, uint8_t fg);
     void write(char *string);
     void write_to_position(char *string, uint8_t row, uint8_t col);
