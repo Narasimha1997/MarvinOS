@@ -1,9 +1,3 @@
-/*
- * timer.h
- *
- * This file is a part of Exylus.
- */
-
 #include "serial.h"
 
 #include <stddef.h>
