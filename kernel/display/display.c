@@ -1,8 +1,5 @@
-#include "vga.cpp"
+#include "vga.c"
 #include "display.h"
-
-namespace Display
-{
 
 uint8_t display_color = 0x0f;
 
@@ -40,6 +37,6 @@ void write_to_position(char *string, uint8_t row, uint8_t col) {
 void write_to_position_reset(char *string, uint8_t row, uint8_t col) {
     terminal_write_string_at_and_reset(string, row, col);
 }
-}; // namespace Display
+ // namespace Display
 
 

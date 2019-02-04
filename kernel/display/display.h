@@ -22,10 +22,11 @@
 #define VGA_COLOR_LIGHT_BROWN 14
 #define VGA_COLOR_WHITE 15
 
-namespace Display
-{
+
+#ifdef __cplusplus
 extern "C"
 {
+#endif
     /*  
        Public Display Kernel API 
      */
@@ -37,7 +38,9 @@ extern "C"
     void write_to_position(char *string, uint8_t row, uint8_t col);
     void write_to_position_reset(char *string, uint8_t row, uint8_t col);
 
+#ifdef __cplusplus
 }
-} // namespace Display
+#endif
+// namespace Display
 
 #endif
