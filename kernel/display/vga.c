@@ -128,6 +128,7 @@ void vga_putchar(unsigned char ch) {
 
         break;
     }
+    update_cursor(tty_col, tty_row);
 }
 
 void terminal_putstring(char *string) {
@@ -135,7 +136,6 @@ void terminal_putstring(char *string) {
         vga_putchar((unsigned char)*string);
         string +=1;
     }
-    update_cursor(tty_col, tty_row);
 }
 
 void terminal_write_string_at(char *str, uint8_t row, uint8_t col) {

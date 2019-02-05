@@ -35,6 +35,7 @@ uint32_t generate_parity_32(char *string) {
         parity = parity ^ (uint32_t)(*string);
         string ++;
     }
+    
     return (parity ^ BIT_32_SEED);
 }
 

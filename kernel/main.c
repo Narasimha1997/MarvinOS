@@ -27,9 +27,10 @@ void sample_program() {
 
     //test conversion functions : 
     int a = 30;
-    int b = 13;
+    int b = 10 + a;
 
-    print_int(a + b);
+    printf("Result is : %d and %c\n", b, '3');
+    printf("Hello");
 
 }
 
