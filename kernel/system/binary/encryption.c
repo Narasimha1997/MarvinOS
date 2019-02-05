@@ -1,6 +1,6 @@
 #include "binary/encryption.h"
 #include<stdint.h>
-
+#include "stdio.h"
 /*
    This is not a secure form of encryption, much higher level encryption schemes will be implemented later
 */
@@ -34,8 +34,7 @@ uint32_t generate_parity_32(char *string) {
     while(*string){ 
         parity = parity ^ (uint32_t)(*string);
         string ++;
-    };
-
+    }
     return (parity ^ BIT_32_SEED);
 }
 
@@ -50,7 +49,7 @@ uint8_t verify_parity_32(char *string, uint32_t parity) {
 
     new_parity = new_parity ^ BIT_32_SEED;
 
-    if((new_parity ^ parity) == 0) return +1;
+    if(parity == new_parity) return 1;
     
     return 0;
 }

@@ -47,3 +47,9 @@ void scanf(char * string, ...) {
     write("This needs to be implemented");
     return;
 }
+
+void print_int(int number) {
+    char buffer[15];
+    i_to_a(number, buffer);
+    fprint(STDOUT, buffer);
+}

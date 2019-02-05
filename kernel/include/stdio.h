@@ -22,6 +22,8 @@ void printf(char *string, ...);
 
 void scanf(char *string, ...);
 
+void print_int(int number);
+
 void i_to_a(int number, char *buffer);
 
 int a_to_i(char *buffer);

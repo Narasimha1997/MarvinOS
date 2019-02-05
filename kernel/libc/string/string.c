@@ -81,4 +81,6 @@ void reverse_copy(char *buffer, char *source) {
         iter ++;
         length --;
     }
+
+    buffer[iter] = '\0'; // put the termination character
 }
