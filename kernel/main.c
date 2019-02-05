@@ -9,10 +9,6 @@
 void kernel_main(void);
 
 
-void key_display(unsigned char key) {
-    putchar(key);
-}
-
 void sample_program() {
 
     //sample program to test keyboard
@@ -28,9 +24,16 @@ void sample_program() {
     write("\t|   =====   |\n");
     write("\t|___________|\n");
 
-    fprint(STDOUT, "Write someting to test me :\n");
-    
-    register_keyboard_handler(key_display);
+    //test conversion functions : 
+    char *number = "1234";
+
+    int result = a_to_i(number) + 6;
+
+    char buffer[5];
+
+    i_to_a(result, buffer);
+
+    write(buffer);
 
 }
 

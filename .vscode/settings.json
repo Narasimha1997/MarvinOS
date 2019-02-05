@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "service_routine.h": "c",
-        "gdt.h": "c"
+        "gdt.h": "c",
+        "stdio.h": "c"
     }
 }

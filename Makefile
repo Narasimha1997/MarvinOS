@@ -14,6 +14,7 @@ kernel/main.o \
 kernel/drivers/serial.o \
 kernel/drivers/keyboard.o \
 kernel/drivers/timer.o \
+kernel/system/binary/conversion.o \
 kernel/libc/stdlib/stdlib.o \
 kernel/system/init.o \
 kernel/system/stderr.o \

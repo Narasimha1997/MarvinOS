@@ -5,6 +5,7 @@
 #include "stderr.h"
 #include "isr.h"
 #include "serial.h"
+#include "binary/conversion.h"
 
 void invalid_descriptor_error(registers_t *regs) {
     write("Invalid descriptor passed to fwrite\n");
@@ -15,6 +16,14 @@ void common_system_error_handler() {
     call_stderr();
 }
 
+void i_to_a(int number, char *buffer) {
+    integer_to_string(number, buffer);
+}
+
+int a_to_i(char *number) {
+    return string_to_integer(number);
+}
+
 void fprint(uint8_t descr, char *output) {
 
     switch(descr) {
@@ -22,7 +31,6 @@ void fprint(uint8_t descr, char *output) {
         case STDERR : common_system_error_handler(); break;
 
         default : 
-          
           set_custom_error_handler(invalid_descriptor_error);
           call_stderr();
           break;

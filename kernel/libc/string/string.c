@@ -1,5 +1,6 @@
 #include<stdint.h>
 #include "string.h"
+#include "display.h"
 
 void * memcopy(void *dest, void *source, uint8_t size) {
     uint8_t iter__ = 0;
@@ -69,4 +70,15 @@ uint8_t strcmp(char *src, char *dst) {
 void strncpy(char *source, char *dest, uint8_t n) {
     source += strlen(source);
     memcopy(source, dest, n);
+}
+
+void reverse_copy(char *buffer, char *source) {
+    signed int length = strlen(source) - 1;
+    uint8_t iter = 0;
+
+    while(length != -1) {
+        buffer[iter] = source[length];
+        iter ++;
+        length --;
+    }
 }

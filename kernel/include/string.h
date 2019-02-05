@@ -21,6 +21,7 @@ extern "C" {
     void strncpy(char *source, char *dest, uint8_t n);
     void test_display_in_string();
     void *memset(void *dst, int c, size_t count);
+    void reverse_copy(char *buffer, char *source);
 
 #ifdef __cplusplus
 }
