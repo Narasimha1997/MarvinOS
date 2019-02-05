@@ -18,7 +18,8 @@ kernel/system/binary/conversion.o \
 kernel/libc/stdlib/stdlib.o \
 kernel/system/init.o \
 kernel/system/stderr.o \
-kernel/libc/string/string.o
+kernel/libc/string/string.o \
+kernel/system/binary/encryption.o
 
 KERNEL_AS_LIST:=\
 kernel/boot.o

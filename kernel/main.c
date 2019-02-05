@@ -4,6 +4,7 @@
 #include "serial.h"
 #include "keyboard.h"
 #include "stdlib.h"
+#include "binary/encryption.h"
 #include "timer.h"
 
 void kernel_main(void);
@@ -25,16 +26,17 @@ void sample_program() {
     write("\t|___________|\n");
 
     //test conversion functions : 
-    char *number = "1234";
+    char *string = "Narasimha";
 
-    int result = a_to_i(number) + 6;
+    encrypt(string);
 
-    char buffer[5];
+    fprint(STDOUT, string);
 
-    i_to_a(result, buffer);
+    fprint(STDOUT, "\n");
 
-    write(buffer);
+    decrypt(string);
 
+    fprint(STDOUT, string);
 }
 
 void kernel_main(void) {
