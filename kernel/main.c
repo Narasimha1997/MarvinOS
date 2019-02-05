@@ -28,15 +28,16 @@ void sample_program() {
     //test conversion functions : 
     char *string = "Narasimha";
 
-    encrypt(string);
+    uint16_t parity = generate_parity_32(string);
 
-    fprint(STDOUT, string);
+    if(verify_parity_32(string, parity)) fprint(STDOUT, "Parity matched\n");
+    else fprint(STDOUT, "Parity did not match here also!\n");
 
-    fprint(STDOUT, "\n");
+    string = "Narasmmha";
 
-    decrypt(string);
+    if(verify_parity_32(string, parity)) fprint(STDOUT, "Parity matched again\n");
+    else fprint(STDOUT, "Parity did not match this time\n"); 
 
-    fprint(STDOUT, string);
 }
 
 void kernel_main(void) {
