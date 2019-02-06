@@ -1,8 +1,9 @@
 /*
- * linked.ld
- *
- * This file is a part of Exylus.
- */
+*
+*     This the memory layout of a Kernel we are creating, 
+*     kernel memory contains a text block, (code), data blocks (read only) and (fixed array block) and an expandable heap block
+*/
+heap_size = 0x100000;
 
 ENTRY(_start)
 

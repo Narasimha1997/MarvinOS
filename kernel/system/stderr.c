@@ -3,7 +3,7 @@
 #include "isr.h"
 
 
-void (*handler) (registers_t  *registers) = 0;
+static void (*handler) (registers_t  *registers) = 0;
 
 void  error_handler(registers_t *r) {
 

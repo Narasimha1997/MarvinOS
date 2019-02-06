@@ -6,17 +6,14 @@
 #include "stdlib.h"
 #include "binary/encryption.h"
 #include "timer.h"
+#include "string.h"
+#include "memory/kmemory.h"
 #include "stderr.h"
 
 void kernel_main(void);
 
 void key_handler_(unsigned char key) {
     putchar(key);
-}
-
-void error_handler_t(registers_t * reg) {
-    reg = 0;
-    printf("Negative number detected\n");
 }
 
 
@@ -36,23 +33,32 @@ void sample_program() {
     write("\t|___________|\n");
 
     //sample program with all we have done till now
-    set_custom_error_handler(error_handler_t);
+    printf("\n----------Round 1 : ---------------\n");
+    printf("Kernel heap space before : %d\n", k_free_size());
+    printf("Allocating 1024 bytes of kernel memory (+ 16 bytes control block) \n");
 
-    int a = 10;
-    int b = - 20;
+    char * pointer = (char *)k_malloc(1024);
+    printf("Available heap after allocation : %d\n", k_free_size());
 
-    int c ;
+    printf("\n------------Round 2 : ---------------\n");
 
-    if(b < 0) {
-        call_stderr();
-        c = -b + a;
-    }else c = a + b;
+    printf("Allocationg 2048 bytes of memory (+ 16 bytes control block)\n");
 
-    printf("Result : %d\n", c);
 
-    printf("Now you can type anything : \n");
+    char *pointer2 = (char *)k_malloc(2 * 1024);
 
-    register_keyboard_handler(key_handler_);
+    printf("Available heap after allocation : %d\n", k_free_size());
+
+    printf("\n-------------------------------\n");
+
+    printf("Calling k_free(void *ptr) on block 1 and 2\n");
+
+    k_free(pointer);
+
+    k_free(pointer2);
+
+    printf("Kernel heap size after k_free(void *ptr) : %d\n", k_free_size());
+
 
 }
 

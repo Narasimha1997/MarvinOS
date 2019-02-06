@@ -4,6 +4,7 @@
 #include "irq.h"
 #include "display.h"
 #include "timer.h"
+#include "memory/kmemory.h"
 #include "stderr.h"
 #include "keyboard.h"
 
@@ -27,6 +28,8 @@ void init_all() {
     //set colors before init display
     set_color(VGA_COLOR_BLACK, VGA_COLOR_GREEN);
     init_display();
+
+     k_heap_init();
 
     keyboard_init();
 

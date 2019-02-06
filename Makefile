@@ -19,7 +19,9 @@ kernel/libc/stdlib/stdlib.o \
 kernel/system/init.o \
 kernel/system/stderr.o \
 kernel/libc/string/string.o \
-kernel/system/binary/encryption.o
+kernel/system/binary/encryption.o \
+kernel/system/memory/kheap.o \
+kernel/system/memory/kmemory.o
 
 KERNEL_AS_LIST:=\
 kernel/boot.o
