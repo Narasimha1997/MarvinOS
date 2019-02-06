@@ -28,18 +28,19 @@ SECTIONS
 		*(.data)
 	}
 
+	.heap ALIGN (4K) :  
+        {
+            heap_bottom = .;
+            . = . + heap_size;
+            heap_top = .;
+        }
+
 	.bss BLOCK(4K) : ALIGN(4K)
 	{
 		*(COMMON)
 		*(.bss)
 	}
-
-	.eh_frame BLOCK(4K) : ALIGN(4K)
-	{
-		*(.eh_frame)
-	}
-
-	end = .;
+	kernel_end = .;
 
 	/DISCARD/ :
 	{

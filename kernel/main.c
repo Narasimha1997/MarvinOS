@@ -6,8 +6,18 @@
 #include "stdlib.h"
 #include "binary/encryption.h"
 #include "timer.h"
+#include "stderr.h"
 
 void kernel_main(void);
+
+void key_handler_(unsigned char key) {
+    putchar(key);
+}
+
+void error_handler_t(registers_t * reg) {
+    reg = 0;
+    printf("Negative number detected\n");
+}
 
 
 void sample_program() {
@@ -25,12 +35,24 @@ void sample_program() {
     write("\t|   =====   |\n");
     write("\t|___________|\n");
 
-    //test conversion functions : 
-    int a = 30;
-    int b = 10 + a;
+    //sample program with all we have done till now
+    set_custom_error_handler(error_handler_t);
 
-    printf("Result is : %d and %c\n", b, '3');
-    printf("Hello");
+    int a = 10;
+    int b = - 20;
+
+    int c ;
+
+    if(b < 0) {
+        call_stderr();
+        c = -b + a;
+    }else c = a + b;
+
+    printf("Result : %d\n", c);
+
+    printf("Now you can type anything : \n");
+
+    register_keyboard_handler(key_handler_);
 
 }
 
