@@ -11,7 +11,7 @@
 void create_stack(unsigned int length);
 
 
-void push(void * structure);
-void * pop();
+void generic_stack_push(void * structure);
+void * generic_stack_pop();
 
 #endif

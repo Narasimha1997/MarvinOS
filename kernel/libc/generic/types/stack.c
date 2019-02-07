@@ -23,9 +23,9 @@ void create_stack(unsigned int length) {
 }
 
 
-void push(void * structure) {
+void generic_stack_push(void * structure) {
     //structure can be of any type
-    if(TOP < MAX_STACK_LENGTH) {
+    if(TOP < MAX_STACK_LENGTH - 1) {
         int index =  block_length;
         memory_pool = memory_pool + index;
         memcopy(memory_pool, structure, block_length);
@@ -33,7 +33,7 @@ void push(void * structure) {
     }
 }
 
-void *  pop() {
+void *  generic_stack_pop() {
     if(TOP > -1) {
         unsigned int index =  block_length;
         void * data = memory_pool;
@@ -42,4 +42,6 @@ void *  pop() {
         //free(data); don't call free() because, user has to manually free the structure memory , once *data is processed
         return data;
     }
+
+    return 0;
 }

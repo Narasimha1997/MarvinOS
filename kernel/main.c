@@ -40,21 +40,25 @@ void sample_program() {
     generic_init(k_malloc, k_free, 30);
 
     //creating a stack of 10 units
-    create_stack(10);
+    create_stack(2);
 
-    push("Narasimha");
+    generic_stack_push("Prasanna");
+    generic_stack_push("Narasimha");
 
-    push("Prasanna");
-    push("Hello,world");
+    //these 2 entries will not be pushed because of overflow
 
-    char *data = pop();
-    printf("%s\n", data);
+    generic_stack_push("Hello,world");
+    generic_stack_push("Sourav");
 
-    data = (char *)pop();
-    printf("%s\n", data);
+    char *data = (char *)generic_stack_pop();
+    printf("Poped : %s\n", data);
 
-    data = (char *)pop();
-    printf("%s\n", data);
+    data = (char *)generic_stack_pop();
+    printf("Poped : %s\n", data);
+
+    //this should be NULL :
+    data = (char *)generic_stack_pop();
+    if(data == NULL) printf("Stack empty\n");
 
 }
 
