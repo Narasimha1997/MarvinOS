@@ -39,7 +39,7 @@ void sample_program() {
 
     generic_init(k_malloc, k_free, 30);
 
-    //creating a stack of 10 units
+    //creating a stack of 2 units
     create_stack(2);
 
     generic_stack_push("Prasanna");
