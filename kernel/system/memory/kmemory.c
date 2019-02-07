@@ -1,5 +1,5 @@
 #include "memory/kheap.h"
-
+#include "string.h"
 
 void *k_malloc(unsigned int size) {
     return allocate_heap_memory(size);
@@ -7,6 +7,7 @@ void *k_malloc(unsigned int size) {
 
 
 void k_free(void *pointer) {
+    
     release_heap(pointer);
 }
 

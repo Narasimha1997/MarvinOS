@@ -21,7 +21,9 @@ kernel/system/stderr.o \
 kernel/libc/string/string.o \
 kernel/system/binary/encryption.o \
 kernel/system/memory/kheap.o \
-kernel/system/memory/kmemory.o
+kernel/system/memory/kmemory.o \
+kernel/libc/generic/allocator.o \
+kernel/libc/generic/types/stack.c
 
 KERNEL_AS_LIST:=\
 kernel/boot.o

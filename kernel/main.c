@@ -10,6 +10,9 @@
 #include "memory/kmemory.h"
 #include "stderr.h"
 
+#include "generic/allocator.h"
+#include "generic/stack.h"
+
 void kernel_main(void);
 
 void key_handler_(unsigned char key) {
@@ -33,32 +36,25 @@ void sample_program() {
     write("\t|___________|\n");
 
     //sample program with all we have done till now
-    printf("\n----------Round 1 : ---------------\n");
-    printf("Kernel heap space before : %d\n", k_free_size());
-    printf("Allocating 1024 bytes of kernel memory (+ 16 bytes control block) \n");
 
-    char * pointer = (char *)k_malloc(1024);
-    printf("Available heap after allocation : %d\n", k_free_size());
+    generic_init(k_malloc, k_free, 30);
 
-    printf("\n------------Round 2 : ---------------\n");
+    //creating a stack of 10 units
+    create_stack(10);
 
-    printf("Allocationg 2048 bytes of memory (+ 16 bytes control block)\n");
+    push("Narasimha");
 
+    push("Prasanna");
+    push("Hello,world");
 
-    char *pointer2 = (char *)k_malloc(2 * 1024);
+    char *data = pop();
+    printf("%s\n", data);
 
-    printf("Available heap after allocation : %d\n", k_free_size());
+    data = (char *)pop();
+    printf("%s\n", data);
 
-    printf("\n-------------------------------\n");
-
-    printf("Calling k_free(void *ptr) on block 1 and 2\n");
-
-    k_free(pointer);
-
-    k_free(pointer2);
-
-    printf("Kernel heap size after k_free(void *ptr) : %d\n", k_free_size());
-
+    data = (char *)pop();
+    printf("%s\n", data);
 
 }
 
