@@ -23,7 +23,8 @@ kernel/system/binary/encryption.o \
 kernel/system/memory/kheap.o \
 kernel/system/memory/kmemory.o \
 kernel/libc/generic/allocator.o \
-kernel/libc/generic/types/stack.c
+kernel/libc/generic/types/stack.c \
+kernel/libc/generic/types/list.c
 
 KERNEL_AS_LIST:=\
 kernel/boot.o

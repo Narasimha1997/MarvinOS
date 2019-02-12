@@ -7,6 +7,7 @@
 #include "binary/encryption.h"
 #include "timer.h"
 #include "string.h"
+#include "generic/list.h"
 #include "memory/kmemory.h"
 #include "stderr.h"
 
@@ -37,29 +38,44 @@ void sample_program() {
 
     //sample program with all we have done till now
 
-    generic_init(k_malloc, k_free, 30);
+    struct  data {
+        int id;
+        char * name;
+    };
 
-    //creating a stack of 2 units
-    create_stack(2);
+    generic_init(k_malloc, k_free, sizeof(struct data));
 
-    generic_stack_push("Prasanna");
-    generic_stack_push("Narasimha");
+    struct data  Data ;
+    Data.id = 10;
+    Data.name = "Prasanna";
 
-    //these 2 entries will not be pushed because of overflow
+    create_list(&Data);
 
-    generic_stack_push("Hello,world");
-    generic_stack_push("Sourav");
+    struct data Data2;
+    Data2.id = 11;
+    Data2.name = "Narasimha";
 
-    char *data = (char *)generic_stack_pop();
-    printf("Poped : %s\n", data);
+    generic_list_add(&Data2);
 
-    data = (char *)generic_stack_pop();
-    printf("Poped : %s\n", data);
+    struct data Data3;
 
-    //this should be NULL :
-    data = (char *)generic_stack_pop();
-    if(data == NULL) printf("Stack empty\n");
+    Data3.id = 13;
+    Data3.name = "Nikil";
 
+    generic_list_add_node_n(2, &Data3);
+
+
+    struct data * Obtained = (struct data *)generic_list_get_node_n(3);
+
+    printf("ID : %d\n Data : %s\n", Obtained->id, Obtained->name);
+
+    generic_list_add_node_n(3, &Data);
+
+    generic_list_remove_node_n(3);
+
+    Obtained = (struct data *)generic_list_get_node_n(3);
+
+    printf("ID : %d\n Data : %s\n", Obtained->id, Obtained->name);
 }
 
 void kernel_main(void) {
