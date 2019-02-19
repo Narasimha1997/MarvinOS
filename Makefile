@@ -23,10 +23,12 @@ kernel/system/binary/encryption.o \
 kernel/system/memory/kheap.o \
 kernel/system/memory/kmemory.o \
 kernel/libc/generic/allocator.o \
-kernel/libc/generic/types/stack.c \
-kernel/libc/generic/types/list.c \
-kernel/libc/generic/types/btree.c \
-kernel/system/input/stdin.c
+kernel/libc/generic/types/stack.o \
+kernel/libc/generic/types/list.o \
+kernel/libc/generic/types/btree.o \
+kernel/system/input/stdin.o \
+kernel/startup.o \
+kernel/modules/cshell/cshell.o
 
 KERNEL_AS_LIST:=\
 kernel/boot.o

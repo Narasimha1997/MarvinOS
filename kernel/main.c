@@ -1,20 +1,8 @@
 #include "init.h"
 #include "display.h"
 #include "stdio.h"
-#include "serial.h"
-#include "keyboard.h"
 #include "stdlib.h"
-#include "binary/encryption.h"
-#include "timer.h"
-#include "string.h"
-#include "input/stdin.h"
-#include "generic/list.h"
-#include "memory/kmemory.h"
-#include "generic/btree.h"
-#include "stderr.h"
-
-#include "generic/allocator.h"
-#include "generic/stack.h"
+#include "startup.h"
 
 void kernel_main(void);
 
@@ -23,7 +11,7 @@ void key_handler_(unsigned char key) {
 }
 
 
-void sample_program() {
+void first_program() {
 
     //sample program to test keyboard
     sleep(2);
@@ -39,23 +27,17 @@ void sample_program() {
     write("\t|___________|\n");
 
     //sample program with all we have done till now
-
-    char buffer[256];
-    
-    kb_read_line(buffer);
-
-    printf("Read : %s\n", buffer);
-
+    delegate_to_console();
 }
 
 void kernel_main(void) {
     init_all();
 
-    sample_program();
+    first_program();
 
     for(;;);
 
-    fprint(STDOUT, "Kernel Exit\n");
+    printf("Kernel halt");
 }
 
 
