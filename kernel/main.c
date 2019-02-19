@@ -7,8 +7,10 @@
 #include "binary/encryption.h"
 #include "timer.h"
 #include "string.h"
+#include "input/stdin.h"
 #include "generic/list.h"
 #include "memory/kmemory.h"
+#include "generic/btree.h"
 #include "stderr.h"
 
 #include "generic/allocator.h"
@@ -38,44 +40,12 @@ void sample_program() {
 
     //sample program with all we have done till now
 
-    struct  data {
-        int id;
-        char * name;
-    };
+    char buffer[256];
+    
+    kb_read_line(buffer);
 
-    generic_init(k_malloc, k_free, sizeof(struct data));
+    printf("Read : %s\n", buffer);
 
-    struct data  Data ;
-    Data.id = 10;
-    Data.name = "Prasanna";
-
-    create_list(&Data);
-
-    struct data Data2;
-    Data2.id = 11;
-    Data2.name = "Narasimha";
-
-    generic_list_add(&Data2);
-
-    struct data Data3;
-
-    Data3.id = 13;
-    Data3.name = "Nikil";
-
-    generic_list_add_node_n(2, &Data3);
-
-
-    struct data * Obtained = (struct data *)generic_list_get_node_n(3);
-
-    printf("ID : %d\n Data : %s\n", Obtained->id, Obtained->name);
-
-    generic_list_add_node_n(3, &Data);
-
-    generic_list_remove_node_n(3);
-
-    Obtained = (struct data *)generic_list_get_node_n(3);
-
-    printf("ID : %d\n Data : %s\n", Obtained->id, Obtained->name);
 }
 
 void kernel_main(void) {

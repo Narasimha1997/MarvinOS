@@ -5,7 +5,14 @@
 
 //This is a platform specific allocator
 //modify this code, to call platform specific dynamic memory allocaor allocator
-
+static void memclear(void * pointer, int block_size) {
+    char * ubyte_ptr = (char *)pointer;
+    while(block_size > 0) {
+        *ubyte_ptr = 0;
+        ubyte_ptr ++;
+        block_size --;
+    }
+}
 
 static unsigned int block_size = 0;
 
@@ -35,7 +42,7 @@ void *  generic_malloc() {
 }
 
 void generic_mdealloc(void * pointer) {
-    memset(pointer, 0, block_size);
+    memclear(pointer, block_size);
     free(pointer);
 }
 

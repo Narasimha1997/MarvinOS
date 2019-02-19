@@ -63,7 +63,9 @@ void x86_32_irq_keyboard(registers_t *regs) {
         //probe port 0x60 to obtain the keycode
         SCAN_CODE_t code = inb(KEYBOARD_SERIAL_PORT);
 
-        key_handler(keycode[code]);
+        if(!(code & 0x80)) {
+			key_handler(keycode[code]);
+		}
     }
 
 }

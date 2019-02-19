@@ -2,6 +2,8 @@
     "files.associations": {
         "service_routine.h": "c",
         "gdt.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "interface.h": "c",
+        "stderr.h": "c"
     }
 }
