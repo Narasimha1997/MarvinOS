@@ -24,7 +24,7 @@ void wcnt(char * string) {
 }
 
 void clear() {
-    set_color(VGA_COLOR_RED, VGA_COLOR_WHITE);
+    set_color(VGA_COLOR_BLUE, VGA_COLOR_WHITE);
     init_display();
 }
 
@@ -36,7 +36,7 @@ void command_parser(char * buffer) {
 
     char *command_ptr = command;
 
-    while((* buffer_ptr != '\n' || * buffer_ptr != '\0') && (* buffer_ptr != ' ')) {
+    while((* buffer_ptr != '\n') && (* buffer_ptr != ' ')) {
          * command_ptr = *buffer_ptr;
          command_ptr ++;
          buffer_ptr ++; 
@@ -63,7 +63,7 @@ void command_parser(char * buffer) {
 void init()
 {
 
-    set_color(VGA_COLOR_RED, VGA_COLOR_WHITE);
+    set_color(VGA_COLOR_BLUE, VGA_COLOR_WHITE);
     init_display();
     write_to_position("Welcome to C-Shell\n", 12, 30);
     sleep(3);
@@ -78,13 +78,13 @@ void init()
 
         //copy first 4 words to a buffer and check for basic commands
 
-        command_parser(input);
-
         if (strcmp(input, "exit\n") == 0) {
             set_color(VGA_COLOR_BLACK, VGA_COLOR_GREEN);
             init_display();
             return;
         };
+
+        command_parser(input);
 
         k_free(input);
     }
