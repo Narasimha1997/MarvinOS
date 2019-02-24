@@ -23,10 +23,30 @@ void wcnt(char * string) {
     printf("%d \n", (int)(strlen(string) - 1));
 }
 
+void cowsay(char * string) {
+    while(*string != ' ') string ++;
+    string ++;
+
+    printf("\t^--------^\n");
+    printf("\t \\ o  o /\n");
+    printf("\t  \\    /\n");
+    printf("\t   \\__/\n");
+    printf("\t   |  |\n");
+    printf("\t   |  |\n");
+    printf("\t %s\n", string);
+}
+
+void avail_heap() {
+    int size = k_free_size();
+    printf("Available size of heap : %d\n", size);
+}
+
 void clear() {
     set_color(VGA_COLOR_BLUE, VGA_COLOR_WHITE);
     init_display();
 }
+
+
 
 void command_parser(char * buffer) {
     
@@ -51,6 +71,10 @@ void command_parser(char * buffer) {
         wcnt(buffer);
     }else if(strcmp("clear", command) == 0) {
         clear();
+    }else if(strcmp("cowsay", command) == 0) {
+        cowsay(buffer);
+    }else if(strcmp("avail-heap", command) == 0) {
+        avail_heap();
     }else {
         printf("Invalid commnad \n");
     }

@@ -3,6 +3,9 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "startup.h"
+#include "cshell/interpreter.h"
+#include "binary/conversion.h"
+#include "arch/types.h"
 
 void kernel_main(void);
 
@@ -27,7 +30,9 @@ void first_program() {
     write("\t|___________|\n");
 
     //sample program with all we have done till now
+    //delegate_to_console();
     delegate_to_console();
+    
 }
 
 void kernel_main(void) {

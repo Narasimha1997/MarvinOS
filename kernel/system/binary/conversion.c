@@ -53,5 +53,15 @@ float string_to_float(char *string) {
     return 0.0;
 }
 
+unsigned char convert_endian_ubyte(unsigned char data) {
+    return (((data & 0x0f) << 4) | ((data & 0xf0) >> 4));
+}
+
+unsigned int convert_endian_word(unsigned int data) {
+    return ((data & 0x000f) << 24) | ((data & 0x00f0) << 8) | ((data & 0x0f00) >> 8) | ((data & 0xf00) >> 24);  
+}
+
+
+ 
 
 

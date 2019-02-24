@@ -15,4 +15,9 @@ void float_to_string(float number, char *buffer);
 int string_to_integer(char *string);
 float string_to_float(char *string);
 
+
+unsigned char convert_endian_ubyte(unsigned char data);
+
+unsigned int convert_endian_word(unsigned int data);
+
 #endif

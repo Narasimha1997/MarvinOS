@@ -4,6 +4,7 @@
         "gdt.h": "c",
         "stdio.h": "c",
         "interface.h": "c",
-        "stderr.h": "c"
+        "stderr.h": "c",
+        "kmemory.h": "c"
     }
 }
