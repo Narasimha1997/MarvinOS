@@ -1,7 +1,9 @@
 # MarvinOS
 
-Marvin.OS is a hobby Operating System kernel developed for Intel x86. 
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
+Marvin.OS is a hobby Operating System kernel developed for Intel x86. 
+
 MarvinOS is a continously improving operating system kernel, progress can be tracked in the section below :
 
 ## Progress till now:
