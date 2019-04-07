@@ -5,6 +5,7 @@
         "stdio.h": "c",
         "interface.h": "c",
         "stderr.h": "c",
-        "kmemory.h": "c"
+        "kmemory.h": "c",
+        "login.h": "c"
     }
 }

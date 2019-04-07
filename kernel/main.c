@@ -3,7 +3,6 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "startup.h"
-#include "cshell/interpreter.h"
 #include "binary/conversion.h"
 #include "arch/types.h"
 

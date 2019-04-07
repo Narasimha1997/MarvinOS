@@ -2,8 +2,10 @@
 #include "input/stdin.h"
 #include "display.h"
 #include "cshell/cshell.h"
+#include "login/login.h"
 #include "stdlib.h"
 #include "string.h"
+#include "arch/types.h"
 #include "memory/kmemory.h"
 
 //we made command parser completely dynamic in nature
@@ -86,7 +88,14 @@ void command_parser(char * buffer) {
 
 void init()
 {
-
+    printf("Enter Password :  ");
+    if(login() == FALSE) {
+        printf("Invalid password, exiting from shell\n");
+        sleep(3);
+        set_color(VGA_COLOR_BLACK, VGA_COLOR_GREEN);
+        init_display();
+        return;
+    }
     set_color(VGA_COLOR_BLUE, VGA_COLOR_WHITE);
     init_display();
     write_to_position("Welcome to C-Shell\n", 12, 30);

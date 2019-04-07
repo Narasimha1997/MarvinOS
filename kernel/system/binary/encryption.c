@@ -1,4 +1,4 @@
-#include "binary/encryption.h"
+#include "encryption.h"
 #include<stdint.h>
 #include "stdio.h"
 /*

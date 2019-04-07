@@ -9,4 +9,6 @@ void k_heap_init();
 
 int k_free_size();
 
+void * k_calloc(unsigned int size);
+
 #endif
